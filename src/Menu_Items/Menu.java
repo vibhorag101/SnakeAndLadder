@@ -16,6 +16,7 @@ import javafx.event.EventHandler;
 import java.util.ArrayList;
 
 public class Menu {
+    static menuWindow toBeHidden = null;
     resourceLoader rl;
     Scene scene;
     BorderPane mainPane;
@@ -43,7 +44,7 @@ public class Menu {
         container using setMargin.
         */
         StackPane menuContainer = new StackPane();
-        menuContainer.getChildren().addAll(infoSubScene,creditSubScene);
+        menuContainer.getChildren().addAll(creditSubScene,infoSubScene);
         mainPane.setCenter(menuContainer);
         BorderPane.setMargin(menuContainer,new Insets(0,0,160,0));
     }

@@ -15,7 +15,8 @@ public class menuButton extends Button {
         setText(text);
         setPrefWidth(190);
         setPrefHeight(49);
-        String BUTTON_FREE_STYLE = "-fx-background-color: transparent; -fx-background-image: url('/assets/button/red_button.png');";
+        String BUTTON_FREE_STYLE = "-fx-background-color: transparent;" +
+                " -fx-background-image: url('/assets/button/red_button.png');";
         setStyle(BUTTON_FREE_STYLE);
         mouseEventHandler();
         setFont(Font.loadFont(Main.rl.getPath("fonts/kenvector_future.ttf"), 23));
@@ -43,8 +44,12 @@ public class menuButton extends Button {
         setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                if (Menu.toBeHidden != null) {
+                    Menu.toBeHidden.animateSubScene();
+                }
                 if (popUp != null) {
                     popUp.animateSubScene();
+                    Menu.toBeHidden = popUp;
                 }
             }
         });

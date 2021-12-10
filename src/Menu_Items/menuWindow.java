@@ -24,6 +24,7 @@ public class menuWindow extends SubScene {
         prefHeight(height);
         prefWidth(width);
         stylePane();
+        hideScene();
     }
     private void stylePane(){
 //        setPosition();
@@ -48,6 +49,9 @@ public class menuWindow extends SubScene {
             isHidden = true;
         }
         transition.play();
+    }
+    public void hideScene(){
+        this.setLayoutX(1000);
     }
     private Background createBackground(String pathString){
         Image backgroundImage = new Image(rl.getPath(pathString));
