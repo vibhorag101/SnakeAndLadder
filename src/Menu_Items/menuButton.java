@@ -1,4 +1,5 @@
 package Menu_Items;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
@@ -7,8 +8,10 @@ import javafx.scene.text.Font;
 import application.Main;
 
 public class menuButton extends Button {
+    menuWindow popUp;
 
-    public menuButton(String text) {
+    public menuButton(String text,menuWindow window) {
+        this.popUp = window;
         setText(text);
         setPrefWidth(190);
         setPrefHeight(49);
@@ -34,6 +37,15 @@ public class menuButton extends Button {
             public void handle(MouseEvent event) {
                 setEffect(null);
 
+            }
+        });
+
+        setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                if (popUp != null) {
+                    popUp.animateSubScene();
+                }
             }
         });
 

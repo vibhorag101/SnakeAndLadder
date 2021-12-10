@@ -26,11 +26,10 @@ public class menuWindow extends SubScene {
         stylePane();
     }
     private void stylePane(){
-        setPosition();
+//        setPosition();
         root.setBackground(createBackground(("Background/yellow.jpg")));
-        addText("Welcome to the game!");
     }
-    private void addText(String text){
+    public void addText(String text){
         Text t = new Text(text);
         root.getChildren().add(t);
         StackPane.setAlignment(t, Pos.CENTER);

@@ -13,30 +13,42 @@ import javafx.scene.text.Font;
 import application.Main;
 import javafx.event.EventHandler;
 
+import java.util.ArrayList;
+
 public class Menu {
-    menuButton Info;
     resourceLoader rl;
     Scene scene;
     BorderPane mainPane;
     HBox TopPane;
     VBox LeftPane;
+    ArrayList<menuWindow> subSceneList;
     public Menu(int Width,int Height){
         this.rl = Main.rl;
+        this.subSceneList = new ArrayList<>();
         InitialisePane();
         InitialiseScene(Width,Height);
-        initialiseSubScene(500,300);
 
     }
-    private void initialiseSubScene(int width,int height){
-        menuWindow subscene = new menuWindow(width,height);
-        mainPane.setCenter(subscene);
-        Info.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                subscene.animateSubScene();
-            }
-        });
+    private void makeAllSubScenes(){
+        menuWindow infoSubScene = initialiseSubScene(500,300);
+        menuWindow creditSubScene = initialiseSubScene(500,300);
+        infoSubScene.addText("Info Scene");
+        creditSubScene.addText("Credits Scene");
+        subSceneList.add(infoSubScene);
+        subSceneList.add(creditSubScene);
 
+        /*
+        creating a container to add all the subscenes to and
+        then adding the container to the center of the borderpane and positioning
+        container using setMargin.
+        */
+        StackPane menuContainer = new StackPane();
+        menuContainer.getChildren().addAll(infoSubScene,creditSubScene);
+        mainPane.setCenter(menuContainer);
+        BorderPane.setMargin(menuContainer,new Insets(0,0,160,0));
+    }
+    private menuWindow initialiseSubScene(int width,int height){
+        return(new menuWindow(width,height));
     }
     private void InitialiseScene(int Width,int Height){
         this.scene = new Scene(mainPane,Width,Height);
@@ -45,6 +57,7 @@ public class Menu {
         this.mainPane = new BorderPane();
         this.TopPane = new HBox();
         this.LeftPane = new VBox();
+        makeAllSubScenes();
         addTopBar();
         addLeftBar();
         mainPane.setPadding(new Insets(35,20,20,20));
@@ -65,10 +78,10 @@ public class Menu {
         TopPane.setPadding(new Insets(0,0,50,0));
     }
     private void addLeftBar(){
-        menuButton Start = new menuButton("Start");
-        Info = new menuButton("Info");
-        menuButton Credits = new menuButton("Credits");
-        menuButton Exit = new menuButton("Exit");
+        menuButton Start = new menuButton("Start",null);
+        menuButton Info = new menuButton("Info",subSceneList.get(0));
+        menuButton Credits = new menuButton("Credits",subSceneList.get(1));
+        menuButton Exit = new menuButton("Exit",null);
         LeftPane.getChildren().addAll(Start,Info,Credits,Exit);
         LeftPane.setSpacing(15);
         mainPane.setLeft(LeftPane);
