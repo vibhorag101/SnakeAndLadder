@@ -41,17 +41,17 @@ public class menuWindow extends SubScene {
         transition.setDuration(Duration.seconds(1.5));
         transition.setNode(this);
         if (isHidden){
-            transition.setToX(500);
+            transition.setToX(10);
             isHidden = false;
         }
         else {
-            transition.setToX(10);
+            transition.setToX(500);
             isHidden = true;
         }
         transition.play();
     }
     public void hideScene(){
-        this.setLayoutX(1000);
+        this.setTranslateX(540);
     }
     private Background createBackground(String pathString){
         Image backgroundImage = new Image(rl.getPath(pathString));

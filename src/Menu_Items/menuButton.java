@@ -44,10 +44,12 @@ public class menuButton extends Button {
         setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                boolean notEqual =!( Menu.toBeHidden == popUp);
                 if (Menu.toBeHidden != null) {
                     Menu.toBeHidden.animateSubScene();
+                    Menu.toBeHidden = null;
                 }
-                if (popUp != null) {
+                if (popUp != null && notEqual) {
                     popUp.animateSubScene();
                     Menu.toBeHidden = popUp;
                 }
