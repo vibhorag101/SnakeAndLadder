@@ -4,6 +4,7 @@ import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
+import application.Main;
 
 public class menuButton extends Button {
 
@@ -14,8 +15,7 @@ public class menuButton extends Button {
         String BUTTON_FREE_STYLE = "-fx-background-color: transparent; -fx-background-image: url('/assets/button/red_button.png');";
         setStyle(BUTTON_FREE_STYLE);
         mouseEventHandler();
-        String FONT_PATH = "/assets/fonts/kenvector_future.ttf";
-        setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 23));
+        setFont(Font.loadFont(Main.rl.getPath("fonts/kenvector_future.ttf"), 23));
     }
     private void mouseEventHandler() {
 

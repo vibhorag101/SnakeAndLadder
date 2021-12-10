@@ -9,7 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
-
+import application.Main;
 
 public class Menu {
     resourceLoader rl;
@@ -17,15 +17,15 @@ public class Menu {
     BorderPane mainPane;
     HBox TopPane;
     VBox LeftPane;
-    public Menu(int Width,int Height,resourceLoader rl){
-        this.rl = rl;
+    public Menu(int Width,int Height){
+        this.rl = Main.rl;
         InitialisePane();
         InitialiseScene(Width,Height);
         initialiseSubScene(500,300);
 
     }
     private void initialiseSubScene(int width,int height){
-        menuWindow subscene = new menuWindow(width,height,rl);
+        menuWindow subscene = new menuWindow(width,height);
         mainPane.setCenter(subscene);
     }
     private void InitialiseScene(int Width,int Height){

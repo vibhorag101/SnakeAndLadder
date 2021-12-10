@@ -5,15 +5,17 @@ import javafx.geometry.Pos;
 import javafx.scene.SubScene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import application.Main;
 
 public class menuWindow extends SubScene {
     resourceLoader rl;
     StackPane root;
 
-    public menuWindow(double width, double height,resourceLoader rl) {
+    public menuWindow(double width, double height) {
         super(new StackPane(), width, height);
-        this.rl = rl;
+        this.rl = Main.rl;
         this.root = (StackPane) this.getRoot();
         prefHeight(height);
         prefWidth(width);
@@ -28,6 +30,7 @@ public class menuWindow extends SubScene {
         Text t = new Text(text);
         root.getChildren().add(t);
         StackPane.setAlignment(t, Pos.CENTER);
+        t.setFont(Font.loadFont(rl.getPath("fonts/kenvector_future.ttf"),30));
     }
     private Background createBackground(String pathString){
         Image backgroundImage = new Image(rl.getPath(pathString));
