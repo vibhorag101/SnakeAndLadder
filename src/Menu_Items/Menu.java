@@ -1,5 +1,4 @@
 package Menu_Items;
-
 import assets.resourceLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -10,7 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
-import java.net.URISyntaxException;
+
 
 public class Menu {
     resourceLoader rl;
@@ -22,6 +21,12 @@ public class Menu {
         this.rl = rl;
         InitialisePane();
         InitialiseScene(Width,Height);
+        initialiseSubScene(500,300);
+
+    }
+    private void initialiseSubScene(int width,int height){
+        menuWindow subscene = new menuWindow(width,height,rl);
+        mainPane.setCenter(subscene);
     }
     private void InitialiseScene(int Width,int Height){
         this.scene = new Scene(mainPane,Width,Height);
@@ -51,7 +56,6 @@ public class Menu {
     }
     private void addLeftBar(){
         menuButton Start = new menuButton("Start");
-//        Button Start = new Button("Start");
         menuButton Info = new menuButton("Info");
         menuButton Credits = new menuButton("Credits");
         menuButton Exit = new menuButton("Exit");
@@ -59,17 +63,21 @@ public class Menu {
         LeftPane.setSpacing(15);
         mainPane.setLeft(LeftPane);
     }
+    private void stylePane(){
+        String path = rl.getPath("Background/pink.jpg");
+        BackgroundImage bi = new BackgroundImage(new Image(path),BackgroundRepeat.REPEAT,
+                BackgroundRepeat.REPEAT,BackgroundPosition.CENTER,null);
+        mainPane.setBackground(new Background(bi));
+        BorderPane.setMargin(LeftPane,new Insets(25,0,0,0));
+    }
+
+    //getters and setters function
     public BorderPane getMenu(){
         return mainPane;
     }
     public Scene getScene(){
         return scene;
     }
-    private void stylePane(){
-        String path = rl.getPath("Background/pink.jpg");
-        BackgroundImage bi = new BackgroundImage(new Image(path),BackgroundRepeat.REPEAT,
-                BackgroundRepeat.REPEAT,BackgroundPosition.CENTER,null);
-        mainPane.setBackground(new Background(bi));
-    }
+
 
     }
