@@ -1,5 +1,6 @@
 package Menu_Items;
 import assets.resourceLoader;
+import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -10,8 +11,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import application.Main;
+import javafx.event.EventHandler;
 
 public class Menu {
+    menuButton Info;
     resourceLoader rl;
     Scene scene;
     BorderPane mainPane;
@@ -27,6 +30,13 @@ public class Menu {
     private void initialiseSubScene(int width,int height){
         menuWindow subscene = new menuWindow(width,height);
         mainPane.setCenter(subscene);
+        Info.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                subscene.animateSubScene();
+            }
+        });
+
     }
     private void InitialiseScene(int Width,int Height){
         this.scene = new Scene(mainPane,Width,Height);
@@ -56,7 +66,7 @@ public class Menu {
     }
     private void addLeftBar(){
         menuButton Start = new menuButton("Start");
-        menuButton Info = new menuButton("Info");
+        Info = new menuButton("Info");
         menuButton Credits = new menuButton("Credits");
         menuButton Exit = new menuButton("Exit");
         LeftPane.getChildren().addAll(Start,Info,Credits,Exit);
