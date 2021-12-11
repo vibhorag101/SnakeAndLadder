@@ -1,4 +1,5 @@
 package Menu_Items;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -10,7 +11,7 @@ import application.Main;
 public class menuButton extends Button {
     menuWindow popUp;
 
-    public menuButton(String text,menuWindow window) {
+    public menuButton(String text, menuWindow window) {
         this.popUp = window;
         setText(text);
         setPrefWidth(190);
@@ -21,6 +22,7 @@ public class menuButton extends Button {
         mouseEventHandler();
         setFont(Font.loadFont(Main.rl.getPath("fonts/kenvector_future.ttf"), 23));
     }
+
     private void mouseEventHandler() {
 
         setOnMouseEntered(new EventHandler<MouseEvent>() {
@@ -44,7 +46,7 @@ public class menuButton extends Button {
         setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                boolean notEqual =!( Menu.toBeHidden == popUp);
+                boolean notEqual = !(Menu.toBeHidden == popUp);
                 if (Menu.toBeHidden != null) {
                     Menu.toBeHidden.animateSubScene();
                     Menu.toBeHidden = null;
