@@ -1,4 +1,5 @@
 package Game;
+
 import application.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -7,41 +8,59 @@ import javafx.scene.control.Menu;
 import javafx.scene.image.Image;
 import assets.resourceLoader;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
-public class dice extends Button {
+public class dice {
 
     private final ImageView diceImage;
     private Image diceFace;
     private int randomNumber;
-    public dice(){
+
+    public dice() {
         diceImage = new ImageView(new Image(Main.rl.getPath("Dice/1.png")));
+        DiceEventHandler();
     }
-    private void generateRandomNumber(){
-        randomNumber = (int)(Math.random()*6)+1;
+
+    private void generateRandomNumber() {
+        randomNumber = (int) (Math.random() * 6) + 1;
     }
-    public int getRandomNumber(){
-        return(randomNumber);
+
+    public int getRandomNumber() {
+        return (randomNumber);
     }
-    public void setDiceFace(){
-        int i=0;
-        while (i<5){
+
+    public void setDiceFace() throws InterruptedException {
+        int i = 0;
+        while (i < 10) {
             generateRandomNumber();
-            Image diceFace = new Image(Main.rl.getPath("Dice/"+randomNumber+".png"));
+            Image diceFace = new Image(Main.rl.getPath("Dice/" + randomNumber + ".png"));
             diceImage.setImage(diceFace);
+            Thread.sleep(50);
             i++;
         }
     }
 
-    private void DiceEventHandler(){
-        setOnAction(new EventHandler<ActionEvent>() {
+    private void DiceEventHandler() {
+        diceImage.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
-            public void handle(ActionEvent actionEvent) {
-                setDiceFace();
+            public void handle(MouseEvent event) {
+                Thread t = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            setDiceFace();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                t.start();
             }
         });
     }
-    public ImageView getDiceImage(){
-        return(diceImage);
+
+    public ImageView getDiceImage() {
+        return (diceImage);
     }
 
 }

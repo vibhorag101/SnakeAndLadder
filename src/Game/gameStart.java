@@ -14,7 +14,7 @@ public class gameStart {
         this.scene = new Scene(root, 800,600);
         this.d = new dice();
         root.setTop(new Button("Start"));
-        root.setCenter(d);
+        root.setCenter(d.getDiceImage());
 
     }
     public Scene getScene(){
