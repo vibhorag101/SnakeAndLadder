@@ -11,14 +11,19 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 public class dice {
+    int height;
+    int width;
 
     private final ImageView diceImage;
     private Image diceFace;
     private int randomNumber;
 
     public dice() {
-        diceImage = new ImageView(new Image(Main.rl.getPath("Dice/1.png")));
+        this.height = 75;
+        this.width = 75;
+        diceImage = new ImageView(new Image(Main.rl.getPath("Dice/1.png"), width, height, false, true));
         DiceEventHandler();
+
     }
 
     private void generateRandomNumber() {
@@ -33,7 +38,7 @@ public class dice {
         int i = 0;
         while (i < 10) {
             generateRandomNumber();
-            Image diceFace = new Image(Main.rl.getPath("Dice/" + randomNumber + ".png"));
+            Image diceFace = new Image(Main.rl.getPath("Dice/" + randomNumber + ".png"), width, height, false, true);
             diceImage.setImage(diceFace);
             Thread.sleep(50);
             i++;
