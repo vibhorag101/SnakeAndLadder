@@ -2,16 +2,20 @@ package Menu_Items;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 import application.Main;
 
 public class menuButton extends Button {
     menuWindow popUp;
+    String ButtonType;
 
-    public menuButton(String text, menuWindow window) {
+    public menuButton(String text,String ButtonType ,menuWindow window) {
+        this.ButtonType = ButtonType;
         this.popUp = window;
         setText(text);
         setPrefWidth(190);
@@ -46,6 +50,13 @@ public class menuButton extends Button {
         setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                if(ButtonType.equals("Start")){
+                    BorderPane gamePane = new BorderPane();
+                    Main.changeScene(new Scene(gamePane,850,600));
+                }
+                if(ButtonType.equals("Exit")){
+                    System.exit(0);
+                }
                 boolean notEqual = !(Menu.toBeHidden == popUp);
                 if (Menu.toBeHidden != null) {
                     Menu.toBeHidden.animateSubScene();

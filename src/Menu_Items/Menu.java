@@ -87,10 +87,10 @@ public class Menu {
     }
 
     private void addLeftBar() {
-        menuButton Start = new menuButton("Start", null);
-        menuButton Info = new menuButton("Info", subSceneList.get(0));
-        menuButton Credits = new menuButton("Credits", subSceneList.get(1));
-        menuButton Exit = new menuButton("Exit", null);
+        menuButton Start = new menuButton("Start","Start", null);
+        menuButton Info = new menuButton("Info","Info", subSceneList.get(0));
+        menuButton Credits = new menuButton("Credits","Credits", subSceneList.get(1));
+        menuButton Exit = new menuButton("Exit","Exit", null);
         LeftPane.getChildren().addAll(Start, Info, Credits, Exit);
         LeftPane.setSpacing(15);
         mainPane.setLeft(LeftPane);
