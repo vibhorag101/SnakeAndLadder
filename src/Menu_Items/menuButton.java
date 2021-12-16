@@ -1,5 +1,6 @@
 package Menu_Items;
 
+import Game.gameStart;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -14,7 +15,7 @@ public class menuButton extends Button {
     menuWindow popUp;
     String ButtonType;
 
-    public menuButton(String text,String ButtonType ,menuWindow window) {
+    public menuButton(String text, String ButtonType, menuWindow window) {
         this.ButtonType = ButtonType;
         this.popUp = window;
         setText(text);
@@ -50,11 +51,11 @@ public class menuButton extends Button {
         setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                if(ButtonType.equals("Start")){
-                    BorderPane gamePane = new BorderPane();
-                    Main.changeScene(new Scene(gamePane,850,600));
+                if (ButtonType.equals("Start")) {
+                    gameStart game = new gameStart();
+                    Main.changeScene(game.getScene());
                 }
-                if(ButtonType.equals("Exit")){
+                if (ButtonType.equals("Exit")) {
                     System.exit(0);
                 }
                 boolean notEqual = !(Menu.toBeHidden == popUp);

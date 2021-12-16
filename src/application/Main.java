@@ -1,5 +1,6 @@
 package application;
 
+import Game.gameStart;
 import Menu_Items.Menu;
 import assets.resourceLoader;
 import javafx.application.Application;
@@ -10,8 +11,9 @@ import javafx.stage.Stage;
 public class Main extends Application {
     private static Stage stage;
     public static resourceLoader rl = new resourceLoader();
-    public static Scene scene;
-    public static void changeScene(Scene scene){
+    private Scene scene;
+
+    public static void changeScene(Scene scene) {
         stage.setScene(scene);
         stage.show();
     }
@@ -21,10 +23,9 @@ public class Main extends Application {
         Main.stage = stage;
         Image logo = new Image(rl.getPath("Background/Menu_Background.jpg"));
         Menu menu = new Menu(850, 600);
-        scene = menu.getScene();
         stage.setTitle("Snake and Ladder Game");
         stage.getIcons().add(logo);
-        changeScene(scene);
+        changeScene(menu.getScene());
     }
     /*
     TODO add method to change the scene as per choice from the start menu
