@@ -12,6 +12,7 @@ public class resourceLoader {
         returnPath = Objects.requireNonNull(getClass().getResource(pathGiven)).toString();
         return (returnPath);
     }
+
     public URL getURL(String pathGiven) throws URISyntaxException, MalformedURLException {
         return (Objects.requireNonNull(getClass().getResource(pathGiven)).toURI().toURL());
     }

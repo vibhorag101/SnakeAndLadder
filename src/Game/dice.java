@@ -19,6 +19,7 @@ public class dice {
     private final ImageView diceImage;
     private Image diceFace;
     private int randomNumber;
+
     public dice(playerControl pc) {
         this.pc = pc;
         this.height = 85;
