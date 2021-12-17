@@ -3,6 +3,7 @@ package assets.FXML;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import Game.dice;
 import Game.gameButton;
@@ -16,6 +17,8 @@ public class GameController {
     /* Initialising the components and injecting them into the controller */
     @FXML
     private VBox leftPane;
+    @FXML
+    private GridPane gamePane;
     @FXML
     private void initialize() {
         System.out.println("GameController initialized");
@@ -35,6 +38,7 @@ public class GameController {
     }
     private void styleLeftPane(){
         leftPane.setStyle("-fx-background-color: rgba(140,8,62,0.88);");
+        gamePane.setStyle("-fx-background-color: #b9b913");
     }
     private void initialiseMouseHandler(){
         exit.setOnAction(new EventHandler<ActionEvent>() {
