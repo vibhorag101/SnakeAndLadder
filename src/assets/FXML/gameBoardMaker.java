@@ -58,6 +58,27 @@ public class gameBoardMaker {
         path.getElements().addAll(moveTo,lineTo);
         return path;
     }
+    public Path pathMakerComplex(int startPos , int endPos){
+        int cornerPath = (startPos/10)*10+ 10;
+        int cornerUP = cornerPath+1;
+        int startX = GetXCord(startPos);
+        int startY = GetYCord(startPos);
+        int cornerX = GetXCord(cornerPath);
+        int cornerY = GetYCord(cornerPath);
+        int cornerXUP = GetXCord(cornerUP);
+        int cornerYUP = GetYCord(cornerUP);
+        int endX = GetXCord(endPos);
+        int endY = GetYCord(endPos);
+        Path path = new Path();
+        MoveTo moveToCorner = new MoveTo(startX,startY);
+        LineTo lineToCorner = new LineTo(cornerX,cornerY);
+        MoveTo moveUP = new MoveTo(cornerX,cornerY);
+        LineTo lineToUP = new LineTo(cornerXUP,cornerYUP);
+        MoveTo moveToEnd = new MoveTo(cornerXUP,cornerYUP);
+        LineTo lineToEnd = new LineTo(endX,endY);
+        path.getElements().addAll(moveToCorner,lineToCorner,moveUP,lineToUP,moveToEnd,lineToEnd);
+        return path;
+    }
     public void ladderMaker(int startNum , int endNum){
 //        pathMaker(startNum,endNum);
         float startXL1 = GetXCord(startNum) -20;
@@ -91,20 +112,17 @@ public class gameBoardMaker {
     }
 
 
-    public ArrayList<Path> getMovingPath(int startPos , int endPos){
+    public Path getMovingPath(int startPos , int endPos){
         boolean onDifferentRow = ((startPos-1)/10 != (endPos-1)/10);
         System.out.println(onDifferentRow);
-        ArrayList<Path> paths = new ArrayList<>();
+        Path path = new Path();
         if (!onDifferentRow){
-            paths.add(pathMaker(startPos,endPos));
+            return(pathMaker(startPos,endPos));
         }
         else{
             int cornerPath = (startPos/10)*10+ 10;
             System.out.println("The corner is "+cornerPath);
-            paths.add(pathMaker(startPos,cornerPath));
-            paths.add(pathMaker(cornerPath,cornerPath+1));
-            paths.add(pathMaker(cornerPath+1,endPos));
+            return(pathMakerComplex(startPos,endPos));
         }
-        return paths;
     }
 }

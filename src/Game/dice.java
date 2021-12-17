@@ -61,6 +61,13 @@ public class dice {
                     }
                 });
                 t.start();
+
+                /*
+                we create a new thread to play the moving logic.
+                It is because we need to wait for the dice thread to finish and so need to sleep
+                till it finishes execution. But if we sleep in the original thread than the dice
+                animation won't work as the thread sleeps so the updated images can't be displayed.
+                 */
                 Thread gameMover = new Thread(new Runnable() {
 
                     @Override

@@ -25,8 +25,16 @@ public class playerControl {
         this.p1Pos=1;
         this.p2Pos = 1;
     }
+    public void playAnimation(Circle p,int pPos,int pDest){
+        PathTransition pathTransition = new PathTransition();
+        pathTransition.setPath(gb.getMovingPath(pPos,pDest));
+        pathTransition.setAutoReverse(false);
+        pathTransition.setNode(p);
+        pathTransition.setDuration(Duration.seconds(1.5));
+        pathTransition.setCycleCount(1);
+        pathTransition.play();
+    }
     public void movePlayer(int diceNum){
-        System.out.println("Dice num: "+diceNum);
         if (p1Turn){
             if(!p1Unlocked && (diceNum==1 || diceNum==6)){
                 p1Unlocked=true;
@@ -36,19 +44,7 @@ public class playerControl {
             if (p1Unlocked){
                 int p1Dest = p1Pos + diceNum;
                 if(p1Dest<=100){
-                    ArrayList<Path> path = gb.getMovingPath(p1Pos,p1Dest);
-                    if (path.size()==1){
-                        PathTransition pathTransition = new PathTransition(Duration.seconds(1),path.get(0),p1);
-                        pathTransition.setAutoReverse(false);
-                        pathTransition.play();
-                    }
-                    else{
-                        for (Path value : path) {
-                            PathTransition pathTransition = new PathTransition(Duration.seconds(1), value, p1);
-                            pathTransition.setAutoReverse(false);
-                            pathTransition.play();
-                        }
-                    }
+                    playAnimation(p1,p1Pos,p1Dest);
                 }
                 p1Pos= p1Dest;
             }
@@ -63,24 +59,7 @@ public class playerControl {
             if (p2Unlocked){
                 int p2Dest = p2Pos + diceNum;
                 if(p2Dest<=100){
-                    ArrayList<Path> path = gb.getMovingPath(p2Pos,p2Dest);
-                    if (path.size()==1){
-                        System.out.println("Size 1");
-                        PathTransition pathTransition = new PathTransition(Duration.seconds(1),path.get(0),p2);
-                        pathTransition.setAutoReverse(false);
-                        pathTransition.play();
-                    }
-                    else{
-                        PathTransition pathTransition = new PathTransition();
-                        for (Path value : path) {
-                            pathTransition.setPath(value);
-                            pathTransition.setAutoReverse(false);
-                            pathTransition.setNode(p2);
-                            pathTransition.setDuration(Duration.seconds(1));
-                            pathTransition.setCycleCount(1);
-                            pathTransition.play();
-                        }
-                    }
+                    playAnimation(p2,p2Pos,p2Dest);
                 }
                 p2Pos= p2Dest;
             }
