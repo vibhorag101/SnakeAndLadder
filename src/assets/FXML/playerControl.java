@@ -45,8 +45,9 @@ public class playerControl {
                 int p1Dest = p1Pos + diceNum;
                 if(p1Dest<=100){
                     playAnimation(p1,p1Pos,p1Dest);
+                    p1Pos= p1Dest;
                 }
-                p1Pos= p1Dest;
+
             }
 
         }
@@ -59,9 +60,11 @@ public class playerControl {
             if (p2Unlocked){
                 int p2Dest = p2Pos + diceNum;
                 if(p2Dest<=100){
+                    //TODO complete the winning logic
                     playAnimation(p2,p2Pos,p2Dest);
+                    p2Pos= p2Dest;
                 }
-                p2Pos= p2Dest;
+
             }
         }
     }
