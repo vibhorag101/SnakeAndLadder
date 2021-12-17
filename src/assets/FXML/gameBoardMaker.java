@@ -10,6 +10,8 @@ import javafx.scene.shape.Path;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+import java.util.ArrayList;
+
 public class gameBoardMaker {
     Pane gamePane;
     public gameBoardMaker(Pane gamePane){
@@ -45,7 +47,7 @@ public class gameBoardMaker {
             }
         }
     }
-    public void pathMaker(int startNum , int endNum){
+    public Path pathMaker(int startNum , int endNum){
         int startX = GetXCord(startNum);
         int startY = GetYCord(startNum);
         int endX = GetXCord(endNum);
@@ -54,7 +56,7 @@ public class gameBoardMaker {
         MoveTo moveTo = new MoveTo(startX,startY);
         LineTo lineTo = new LineTo(endX,endY);
         path.getElements().addAll(moveTo,lineTo);
-        gamePane.getChildren().add(path);
+        return path;
     }
     public void ladderMaker(int startNum , int endNum){
 //        pathMaker(startNum,endNum);
@@ -81,13 +83,28 @@ public class gameBoardMaker {
             float XcordL1 = (YcordL1-endYL1)/slopeL1 + endXL1;
             float YcordL2 = endYL2+ 15+ (i*30);
             float XcordL2 = (YcordL2-endYL2)/slopeL2 + endXL2;
-            System.out.println(XcordL1+" "+YcordL1+" "+i);
-            System.out.println(XcordL2+" "+YcordL2);
-            System.out.println();
             Line l3 = new Line(XcordL1,YcordL1,XcordL2,YcordL2);
             l3.setStroke(Color.web("#0d4517"));
             l3.setStrokeWidth(5);
             gamePane.getChildren().add(l3);
         }
+    }
+
+
+    public ArrayList<Path> getMovingPath(int startPos , int endPos){
+        boolean onDifferentRow = ((startPos-1)/10 != (endPos-1)/10);
+        System.out.println(onDifferentRow);
+        ArrayList<Path> paths = new ArrayList<>();
+        if (!onDifferentRow){
+            paths.add(pathMaker(startPos,endPos));
+        }
+        else{
+            int cornerPath = (startPos/10)*10+ 10;
+            System.out.println("The corner is "+cornerPath);
+            paths.add(pathMaker(startPos,cornerPath));
+            paths.add(pathMaker(cornerPath,cornerPath+1));
+            paths.add(pathMaker(cornerPath+1,endPos));
+        }
+        return paths;
     }
 }

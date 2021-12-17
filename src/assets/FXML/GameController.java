@@ -9,8 +9,10 @@ import Game.dice;
 import Game.gameButton;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Path;
 
 public class GameController {
+    playerControl pc;
     gameBoardMaker gb;
     dice gameDice;
     int diceNum;
@@ -23,16 +25,22 @@ public class GameController {
     @FXML
     private Pane gamePane;
     @FXML
+    private Circle P1;
+    @FXML
+    private Circle P2;
+    @FXML
     private void initialize() {
         System.out.println("GameController initialized");
-        initialiseLeftPane();
         initialiseGamePane();
+        initialiseLeftPane();
+//        initialiseGamePane();
     }
     private void initialiseGamePane(){
         this.gb = new gameBoardMaker(gamePane);
         gb.LabelMaker();
         styleGamePane();
         createLadderPaths();
+        this.pc = new playerControl(P1,P2,gb);
     }
     private void initialiseLeftPane(){
         player1 = new gameButton("Player 1","P1");
@@ -44,7 +52,7 @@ public class GameController {
         initialiseMouseHandler();
     }
     private void createDice(){
-        gameDice = new dice();
+        gameDice = new dice(pc);
     }
     private void styleLeftPane(){
         leftPane.setStyle("-fx-background-color: rgba(140,8,62,0.88);");
@@ -70,6 +78,9 @@ public class GameController {
                 System.exit(0);
             }
         });
+
     }
 
+
 }
+

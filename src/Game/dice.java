@@ -9,16 +9,17 @@ import javafx.scene.image.Image;
 import assets.resourceLoader;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import assets.FXML.playerControl;
 
 public class dice {
     int height;
     int width;
-
+    playerControl pc;
     private final ImageView diceImage;
     private Image diceFace;
     private int randomNumber;
-
-    public dice() {
+    public dice(playerControl pc) {
+        this.pc = pc;
         this.height = 85;
         this.width = 85;
         diceImage = new ImageView(new Image(Main.rl.getPath("Dice/1.png"), width, height, false, true));
@@ -60,6 +61,19 @@ public class dice {
                     }
                 });
                 t.start();
+                Thread gameMover = new Thread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        pc.movePlayer(randomNumber);
+                    }
+                });
+                gameMover.start();
             }
         });
     }
