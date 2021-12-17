@@ -115,7 +115,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9acd32e5" height="60.0" layoutX="540.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" width="60.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9acd32e5" height="60.0" layoutX="540.0" stroke="BLACK" strokeType="INSIDE" width="60.0" />
             <Circle fx:id="P1" centerX="30.0" centerY="570.0" fill="#ff951f" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="P2" centerX="30.0" centerY="570.0" fill="#4052d9" layoutX="9.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="P2" centerX="30.0" centerY="570.0" fill="#0fc6e0" layoutX="9.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </Pane>
    </center>

@@ -1,6 +1,7 @@
 package Game;
 
 import application.Main;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -78,6 +79,7 @@ public class dice {
                             e.printStackTrace();
                         }
                         pc.movePlayer(randomNumber);
+                        pc.updateTurnInfo();
                     }
                 });
                 gameMover.start();

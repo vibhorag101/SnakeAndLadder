@@ -1,23 +1,24 @@
 package assets.FXML;
 
+import Game.gameButton;
 import javafx.animation.PathTransition;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Path;
 import javafx.util.Duration;
 
-import java.util.ArrayList;
-
 public class playerControl {
     gameBoardMaker gb;
     Circle p1;
     Circle p2;
+    gameButton turnInfo;
     Boolean p1Turn,p2Turn;
     Boolean p1Unlocked,p2Unlocked;
     int p1Pos, p2Pos;
-    public playerControl(Circle p1,Circle p2,gameBoardMaker gb){
+    public playerControl(Circle p1, Circle p2, gameButton turnInfo, gameBoardMaker gb){
         this.gb = gb;
         this.p1=p1;
         this.p2=p2;
+        this.turnInfo=turnInfo;
         this.p1Turn= true;
         this.p2Turn = false;
         this.p1Unlocked= false;
@@ -66,6 +67,14 @@ public class playerControl {
                 }
 
             }
+        }
+    }
+    public void updateTurnInfo(){
+        if(p1Turn){
+            turnInfo.updatePlayerTurn("Player1");
+        }
+        else{
+            turnInfo.updatePlayerTurn("Player2");
         }
     }
 

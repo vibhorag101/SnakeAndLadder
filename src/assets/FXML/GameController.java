@@ -8,16 +8,13 @@ import javafx.scene.layout.VBox;
 import Game.dice;
 import Game.gameButton;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Path;
 
 public class GameController {
     playerControl pc;
     gameBoardMaker gb;
     dice gameDice;
     int diceNum;
-    gameButton player1;
-    gameButton player2;
+    gameButton turnInfo;
     gameButton exit;
     /* Initialising the components and injecting them into the controller */
     @FXML
@@ -30,6 +27,7 @@ public class GameController {
     private Circle P2;
     @FXML
     private void initialize() {
+        this.turnInfo = new gameButton("Player 1\n"+ " Turn","Turn Info");
         System.out.println("GameController initialized");
         initialiseGamePane();
         initialiseLeftPane();
@@ -40,14 +38,13 @@ public class GameController {
         gb.LabelMaker();
         styleGamePane();
         createLadderPaths();
-        this.pc = new playerControl(P1,P2,gb);
+        this.pc = new playerControl(P1,P2,turnInfo,gb);
     }
     private void initialiseLeftPane(){
-        player1 = new gameButton("Player 1","P1");
-        player2 = new gameButton("Player 2","P2");
+//        turnInfo = new gameButton("Player 1\n"+ " Turn","Turn Info");
         exit = new gameButton("Exit","Exit");
         createDice();
-        leftPane.getChildren().addAll(player1,gameDice.getDiceImage(),player2,exit);
+        leftPane.getChildren().addAll(turnInfo,gameDice.getDiceImage(),exit);
         styleLeftPane();
         initialiseMouseHandler();
     }
