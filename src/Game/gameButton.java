@@ -40,9 +40,67 @@ public class gameButton extends Button {
     }
 
     public void updatePlayerTurn(String PlayerName) {
-        if (PlayerName.equals("Player1")) {
+        if (PlayerName.equals("Player1Won")) {
+            System.out.println("Player1Won");
             this.setStyle("-fx-background-color: #ff951f");
-//            this.setText("Player 1\n"+" turn");
+            Thread t = new Thread(new Runnable() {
+
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Platform.runLater(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            Menu menu = new Menu(850, 600);
+                            Main.changeScene(menu.getScene());
+                        }
+                    });
+
+                }
+            });
+            t.start();
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    g.setText("Player 1\n" + " WON");
+                }
+
+            });
+        } else if (PlayerName.equals("Player2Won")) {
+            this.setStyle("-fx-background-color: #ff951f");
+            Thread t = new Thread(new Runnable() {
+
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Platform.runLater(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            Menu menu = new Menu(850, 600);
+                            Main.changeScene(menu.getScene());
+                        }
+                    });
+                }
+            });
+            t.start();
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    g.setText("Player 2\n" + " WON");
+                }
+            });
+        } else if (PlayerName.equals("Player1")) {
+            this.setStyle("-fx-background-color: #ff951f");
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
@@ -51,7 +109,6 @@ public class gameButton extends Button {
             });
         } else {
             this.setStyle("-fx-background-color: #0fc6e0");
-//            this.setText("Player 2\n"+" turn");
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {

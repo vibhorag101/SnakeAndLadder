@@ -1,5 +1,4 @@
 package assets.FXML;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -85,7 +84,5 @@ public class GameController {
         });
 
     }
-
-
 }
 
