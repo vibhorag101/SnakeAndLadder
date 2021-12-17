@@ -11,6 +11,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 import application.Main;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 public class menuButton extends Button {
     menuWindow popUp;
     String ButtonType;
@@ -52,7 +55,13 @@ public class menuButton extends Button {
             @Override
             public void handle(ActionEvent actionEvent) {
                 if (ButtonType.equals("Start")) {
-                    gameStart game = new gameStart();
+                    gameStart game = null;
+                    try {
+                        game = new gameStart();
+                    } catch (IOException | URISyntaxException e) {
+                        e.printStackTrace();
+                    }
+                    assert game != null;
                     Main.changeScene(game.getScene());
                 }
                 if (ButtonType.equals("Exit")) {

@@ -19,8 +19,8 @@ public class dice {
     private int randomNumber;
 
     public dice() {
-        this.height = 75;
-        this.width = 75;
+        this.height = 85;
+        this.width = 85;
         diceImage = new ImageView(new Image(Main.rl.getPath("Dice/1.png"), width, height, false, true));
         DiceEventHandler();
 
