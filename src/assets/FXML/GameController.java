@@ -4,9 +4,12 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import Game.dice;
 import Game.gameButton;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 
 public class GameController {
     dice gameDice;
@@ -18,7 +21,9 @@ public class GameController {
     @FXML
     private VBox leftPane;
     @FXML
-    private GridPane gamePane;
+    private Pane gamePane;
+    @FXML
+    private Circle P1;
     @FXML
     private void initialize() {
         System.out.println("GameController initialized");
@@ -38,7 +43,6 @@ public class GameController {
     }
     private void styleLeftPane(){
         leftPane.setStyle("-fx-background-color: rgba(140,8,62,0.88);");
-        gamePane.setStyle("-fx-background-color: #b9b913");
     }
     private void initialiseMouseHandler(){
         exit.setOnAction(new EventHandler<ActionEvent>() {
