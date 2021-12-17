@@ -26,6 +26,7 @@ public class Main extends Application {
         stage.setTitle("Snake and Ladder Game");
         stage.getIcons().add(logo);
         changeScene(menu.getScene());
+        stage.resizableProperty().setValue(false);
     }
     /*
     TODO add method to change the scene as per choice from the start menu

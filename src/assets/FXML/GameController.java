@@ -3,7 +3,6 @@ package assets.FXML;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import Game.dice;
@@ -12,6 +11,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 
 public class GameController {
+    gameBoardMaker gb;
     dice gameDice;
     int diceNum;
     gameButton player1;
@@ -23,11 +23,16 @@ public class GameController {
     @FXML
     private Pane gamePane;
     @FXML
-    private Circle P1;
-    @FXML
     private void initialize() {
         System.out.println("GameController initialized");
         initialiseLeftPane();
+        initialiseGamePane();
+    }
+    private void initialiseGamePane(){
+        this.gb = new gameBoardMaker(gamePane);
+        gb.LabelMaker();
+        styleGamePane();
+        createLadderPaths();
     }
     private void initialiseLeftPane(){
         player1 = new gameButton("Player 1","P1");
@@ -43,6 +48,20 @@ public class GameController {
     }
     private void styleLeftPane(){
         leftPane.setStyle("-fx-background-color: rgba(140,8,62,0.88);");
+    }
+    private void styleGamePane(){
+        gamePane.setStyle("-fx-background-color: rgba(2,252,19,0.88);");
+    }
+    private void createLadderPaths(){
+        gb.ladderMaker(4,25);
+        gb.ladderMaker(9,31);
+        gb.ladderMaker(28,46);
+        gb.ladderMaker(32,48);
+        gb.ladderMaker(42,80);
+        gb.ladderMaker(58,77);
+        gb.ladderMaker(52,68);
+        gb.ladderMaker(69,93);
+        gb.ladderMaker(84,98);
     }
     private void initialiseMouseHandler(){
         exit.setOnAction(new EventHandler<ActionEvent>() {
