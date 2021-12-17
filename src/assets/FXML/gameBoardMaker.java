@@ -58,14 +58,14 @@ public class gameBoardMaker {
     }
     public void ladderMaker(int startNum , int endNum){
 //        pathMaker(startNum,endNum);
-        int startXL1 = GetXCord(startNum) -20;
-        int startYL1 = GetYCord(startNum);
-        int endXL1 = GetXCord(endNum)-20;
-        int endYL1 = GetYCord(endNum);
-        int startXL2 = GetXCord(startNum)+20;
-        int startYL2 = GetYCord(startNum);
-        int endXL2 = GetXCord(endNum) +20;
-        int endYL2 = GetYCord(endNum);
+        float startXL1 = GetXCord(startNum) -20;
+        float startYL1 = GetYCord(startNum);
+        float endXL1 = GetXCord(endNum)-20;
+        float endYL1 = GetYCord(endNum);
+        float startXL2 = GetXCord(startNum)+20;
+        float startYL2 = GetYCord(startNum);
+        float endXL2 = GetXCord(endNum) +20;
+        float endYL2 = GetYCord(endNum);
         Line l1 = new Line(startXL1,startYL1,endXL1,endYL1);
         Line l2 = new Line(startXL2,startYL2,endXL2,endYL2);
         gamePane.getChildren().addAll(l1,l2);
@@ -73,18 +73,17 @@ public class gameBoardMaker {
         l1.setStrokeWidth(5);
         l2.setStroke(Color.web("#0d4517"));
         l2.setStrokeWidth(5);
-
-        int slopeL1 = (startYL1-endYL1)/(startXL1-endXL1);
-        int slopeL2 = (startYL2-endYL2)/(startXL2-endXL2);
-        int nLadders = (startYL1-endYL1)/30;
-        System.out.println(slopeL1);
-        System.out.println(slopeL2);
-        System.out.println(nLadders);
+        float slopeL1 = (startYL1-endYL1)/(startXL1-endXL1);
+        float slopeL2 = (startYL2-endYL2)/(startXL2-endXL2);
+        float nLadders = (startYL1-endYL1)/30;
         for (int i = 0; i < nLadders; i++){
-            int YcordL1 = endYL1+ 15+ (i*30);
-            int XcordL1 = (YcordL1-endYL1)/slopeL1 + endXL1;
-            int YcordL2 = endYL2+ 15+ (i*30);
-            int XcordL2 = (YcordL2-endYL2)/slopeL2 + endXL2;
+            float YcordL1 = endYL1+ 15+ (i*30);
+            float XcordL1 = (YcordL1-endYL1)/slopeL1 + endXL1;
+            float YcordL2 = endYL2+ 15+ (i*30);
+            float XcordL2 = (YcordL2-endYL2)/slopeL2 + endXL2;
+            System.out.println(XcordL1+" "+YcordL1+" "+i);
+            System.out.println(XcordL2+" "+YcordL2);
+            System.out.println();
             Line l3 = new Line(XcordL1,YcordL1,XcordL2,YcordL2);
             l3.setStroke(Color.web("#0d4517"));
             l3.setStrokeWidth(5);

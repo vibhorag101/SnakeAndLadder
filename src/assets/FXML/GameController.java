@@ -54,7 +54,7 @@ public class GameController {
     }
     private void createLadderPaths(){
         gb.ladderMaker(4,25);
-        gb.ladderMaker(9,31);
+        gb.ladderMaker(8,31);
         gb.ladderMaker(28,46);
         gb.ladderMaker(32,48);
         gb.ladderMaker(42,80);
