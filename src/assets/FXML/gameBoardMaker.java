@@ -59,7 +59,7 @@ public class gameBoardMaker {
         return path;
     }
     public Path pathMakerComplex(int startPos , int endPos){
-        int cornerPath = (startPos/10)*10+ 10;
+        int cornerPath = ((startPos-1)/10)*10+ 10;
         int cornerUP = cornerPath+1;
         int startX = GetXCord(startPos);
         int startY = GetYCord(startPos);
@@ -76,7 +76,18 @@ public class gameBoardMaker {
         LineTo lineToUP = new LineTo(cornerXUP,cornerYUP);
         MoveTo moveToEnd = new MoveTo(cornerXUP,cornerYUP);
         LineTo lineToEnd = new LineTo(endX,endY);
-        path.getElements().addAll(moveToCorner,lineToCorner,moveUP,lineToUP,moveToEnd,lineToEnd);
+        if (cornerPath == startPos && cornerUP == endPos){
+            path.getElements().addAll(moveUP,lineToUP);
+        }
+        else if(cornerPath == startPos){
+            path.getElements().addAll(moveUP,lineToUP,moveToEnd,lineToEnd);
+        }
+        else if(cornerUP == endPos){
+            path.getElements().addAll(moveToCorner, lineToCorner,moveUP,lineToUP);
+        }
+        else {
+            path.getElements().addAll(moveToCorner, lineToCorner, moveUP, lineToUP, moveToEnd, lineToEnd);
+        }
         return path;
     }
     public void ladderMaker(int startNum , int endNum){
@@ -114,14 +125,11 @@ public class gameBoardMaker {
 
     public Path getMovingPath(int startPos , int endPos){
         boolean onDifferentRow = ((startPos-1)/10 != (endPos-1)/10);
-        System.out.println(onDifferentRow);
         Path path = new Path();
         if (!onDifferentRow){
             return(pathMaker(startPos,endPos));
         }
         else{
-            int cornerPath = (startPos/10)*10+ 10;
-            System.out.println("The corner is "+cornerPath);
             return(pathMakerComplex(startPos,endPos));
         }
     }
