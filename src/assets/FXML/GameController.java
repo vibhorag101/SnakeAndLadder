@@ -28,7 +28,6 @@ public class GameController {
     @FXML
     private void initialize() {
         this.turnInfo = new gameButton("Player 1\n" + " Turn", "Turn Info");
-        System.out.println("GameController initialized");
         initialiseGamePane();
         initialiseLeftPane();
 //        initialiseGamePane();
@@ -43,7 +42,6 @@ public class GameController {
     }
 
     private void initialiseLeftPane() {
-//        turnInfo = new gameButton("Player 1\n"+ " Turn","Turn Info");
         exit = new gameButton("Exit", "Exit");
         createDice();
         leftPane.getChildren().addAll(turnInfo, gameDice.getDiceImage(), exit);
