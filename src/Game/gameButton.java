@@ -30,7 +30,7 @@ public class gameButton extends Button {
         setPrefHeight(100);
         setStyle("-fx-background-color: #ff951f");
         if (!buttonType.equals("Exit")) {
-            setFont(Font.loadFont(Main.rl.getPath("fonts/kenvector_future.ttf"), 18));
+            setFont(Font.loadFont(Main.rl.getPath("fonts/kenvector_future.ttf"), 25));
             setTextFill(Color.WHITE);
         } else {
             setFont(Font.loadFont(Main.rl.getPath("fonts/kenvector_future.ttf"), 35));
@@ -41,7 +41,6 @@ public class gameButton extends Button {
 
     public void updatePlayerTurn(String PlayerName) {
         if (PlayerName.equals("Player1Won")) {
-            System.out.println("Player1Won");
             this.setStyle("-fx-background-color: #ff951f");
             Thread t = new Thread(new Runnable() {
 
