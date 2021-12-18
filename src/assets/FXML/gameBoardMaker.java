@@ -1,6 +1,7 @@
 package assets.FXML;
 
 import application.Main;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
@@ -105,10 +106,12 @@ public class gameBoardMaker {
         Line l1 = new Line(startXL1, startYL1, endXL1, endYL1);
         Line l2 = new Line(startXL2, startYL2, endXL2, endYL2);
         gamePane.getChildren().addAll(l1, l2);
-        l1.setStroke(Color.web("#0d4517"));
+        l1.setStroke(Color.web("007bff"));
         l1.setStrokeWidth(5);
-        l2.setStroke(Color.web("#0d4517"));
+        l2.setStroke(Color.web("007bff"));
         l2.setStrokeWidth(5);
+        l1.setEffect(new DropShadow());
+        l2.setEffect(new DropShadow());
         float slopeL1 = (startYL1 - endYL1) / (startXL1 - endXL1);
         float slopeL2 = (startYL2 - endYL2) / (startXL2 - endXL2);
         float nLadders = (startYL1 - endYL1) / 30;
@@ -118,7 +121,7 @@ public class gameBoardMaker {
             float YcordL2 = endYL2 + 15 + (i * 30);
             float XcordL2 = (YcordL2 - endYL2) / slopeL2 + endXL2;
             Line l3 = new Line(XcordL1, YcordL1, XcordL2, YcordL2);
-            l3.setStroke(Color.web("#0d4517"));
+            l3.setStroke(Color.web("007bff"));
             l3.setStrokeWidth(5);
             gamePane.getChildren().add(l3);
         }
