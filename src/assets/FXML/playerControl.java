@@ -68,8 +68,8 @@ public class playerControl {
             case 81 -> 63;
             case 90 -> 50;
             case 94 -> 53;
-            case 97 -> 54;
-            case 99 -> 77;
+            case 97 -> 64;
+            case 99 -> 78;
             default -> 0;
         };
     }
