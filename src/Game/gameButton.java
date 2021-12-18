@@ -26,16 +26,18 @@ public class gameButton extends Button {
         this.g = this;
         this.buttonType = buttonType;
         setText(text);
-        setPrefWidth(190);
-        setPrefHeight(100);
         setStyle("-fx-background-color: #ff951f");
         if (!buttonType.equals("Exit")) {
+            setPrefWidth(190);
+            setPrefHeight(100);
             setFont(Font.loadFont(Main.rl.getPath("fonts/kenvector_future.ttf"), 25));
             setTextFill(Color.WHITE);
         } else {
+            setPrefWidth(190);
+            setPrefHeight(50);
             setFont(Font.loadFont(Main.rl.getPath("fonts/kenvector_future.ttf"), 35));
             setTextFill(Color.WHITE);
-            setTextFill(Color.WHITE);
+            setStyle("-fx-background-color: #6e0baf");
         }
     }
 

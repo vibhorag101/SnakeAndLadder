@@ -1,12 +1,17 @@
 package assets.FXML;
+import application.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import Game.dice;
 import Game.gameButton;
 import javafx.scene.shape.Circle;
+
+import java.awt.*;
 
 public class GameController {
     playerControl pc;
@@ -42,9 +47,10 @@ public class GameController {
     }
 
     private void initialiseLeftPane() {
+        ImageView indicator = new ImageView(new Image(Main.rl.getPath("logo/arrow.png"), 60, 60, true, true));
         exit = new gameButton("Exit", "Exit");
         createDice();
-        leftPane.getChildren().addAll(turnInfo, gameDice.getDiceImage(), exit);
+        leftPane.getChildren().addAll(turnInfo, gameDice.getDiceImage(), indicator,exit);
         styleLeftPane();
         initialiseMouseHandler();
     }
