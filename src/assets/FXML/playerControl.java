@@ -149,12 +149,10 @@ public class playerControl {
                     onLadder = checkOnLadder(p1Dest);
                     onSnake = checkOnSnake(p1Dest);
                     if (onSnake){
-                        System.out.println("snake p1");
                         playAnimationOnSnake(p1, p1Pos, p1Dest);
                         p1Pos = getSnakeDest(p1Dest);
                     }
                     else if(onLadder){
-                        System.out.println("ladder p1");
                         playAnimationOnLadder(p1, p1Pos, p1Dest);
                         p1Pos = getLadderDest(p1Dest);
                     }
@@ -187,12 +185,10 @@ public class playerControl {
                     onLadder = checkOnLadder(p2Dest);
                     onSnake = checkOnSnake(p2Dest);
                     if (onSnake){
-                        System.out.println("snake p2");
                         playAnimationOnSnake(p2, p2Pos, p2Dest);
                         p2Pos= getSnakeDest(p2Dest);
                     }
                     else if(onLadder){
-                        System.out.println("ladder p2");
                         playAnimationOnLadder(p2, p2Pos, p2Dest);
                         p2Pos = getLadderDest(p2Dest);
                     }
