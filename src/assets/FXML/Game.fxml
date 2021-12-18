@@ -168,9 +168,9 @@
                   <Image url="@../snakes/snake1.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="32.0" fitWidth="53.0" layoutX="4.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="27.0" fitWidth="25.0" layoutX="15.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../logo/crown.png" />
+                  <Image url="@../logo/flag.png" />
                </image>
             </ImageView>
          </children>
