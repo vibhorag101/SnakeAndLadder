@@ -57,9 +57,9 @@ public class playerControl {
                 if (p1Dest==100){
                     p1Won = true;
                 }
-//                else if(p1Won || p2Won){
-//                    System.exit(0);
-//                }
+                else if(p1Won || p2Won){
+                    System.exit(0);
+                }
 
             }
 
@@ -79,9 +79,9 @@ public class playerControl {
                 if (p2Dest==100){
                     p2Won = true;
                 }
-//                else if (p2Won || p1Won){
-//                    System.exit(0);
-//                }
+                else if (p2Won || p1Won){
+                    System.exit(0);
+                }
 
             }
         }
