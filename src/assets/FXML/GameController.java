@@ -1,5 +1,8 @@
 package assets.FXML;
 import application.Main;
+import javafx.animation.Animation;
+import javafx.animation.PathTransition;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -53,6 +56,24 @@ public class GameController {
         leftPane.getChildren().addAll(turnInfo, gameDice.getDiceImage(), indicator,exit);
         styleLeftPane();
         initialiseMouseHandler();
+        animateIndicator(indicator);
+    }
+    private void animateIndicator(ImageView indicator){
+        Thread t = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                TranslateTransition tt = new TranslateTransition();
+                tt.setDuration(javafx.util.Duration.millis(1000));
+                tt.setNode(indicator);
+                tt.setToY(indicator.getLayoutY() - 25);
+                tt.setCycleCount(Animation.INDEFINITE);
+                tt.setAutoReverse(true);
+                tt.play();
+
+            }
+        });
+        t.start();
     }
 
     private void createDice() {
