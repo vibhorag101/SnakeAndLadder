@@ -2,12 +2,12 @@ package assets.FXML;
 import Menu_Items.Menu;
 import application.Main;
 import javafx.animation.Animation;
-import javafx.animation.PathTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -15,7 +15,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import Game.dice;
 import Game.gameButton;
+import Winning_Menu.WinningMenuStart;
 import javafx.scene.shape.Circle;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class GameController {
     playerControl pc;

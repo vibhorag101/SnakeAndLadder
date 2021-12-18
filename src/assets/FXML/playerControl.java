@@ -8,6 +8,8 @@ import javafx.scene.shape.Path;
 import javafx.scene.shape.PathElement;
 import javafx.util.Duration;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 public class playerControl {
@@ -209,7 +211,7 @@ public class playerControl {
         }
     }
 
-    public void updateTurnInfo() {
+    public void updateTurnInfo() throws IOException, URISyntaxException {
         if (p1Won) {
             turnInfo.updatePlayerTurn("Player1Won");
         }

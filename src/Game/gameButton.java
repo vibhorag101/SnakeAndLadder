@@ -3,6 +3,7 @@ package Game;
 import Game.gameStart;
 import Menu_Items.Menu;
 import Menu_Items.menuWindow;
+import Winning_Menu.WinningMenuStart;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,14 +15,16 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import application.Main;
-
+import Winning_Menu.WinningMenu;
+import Winning_Menu.WinningMenuStart;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class gameButton extends Button {
     String buttonType;
     gameButton g;
-
+    public static String Player1;
+    public static String Player2;
     public gameButton(String text, String buttonType) {
         this.g = this;
         this.buttonType = buttonType;
@@ -41,10 +44,12 @@ public class gameButton extends Button {
         }
     }
 
-    public void updatePlayerTurn(String PlayerName) {
+    public void updatePlayerTurn(String PlayerName) throws IOException, URISyntaxException {
         if (PlayerName.equals("Player1Won")) {
-            this.setStyle("-fx-background-color: #ff951f");
-            Thread t = new Thread(new Runnable() {
+            Player1 = "Player1Won";
+            Player2 = "Player2WLost";
+            /*this.setStyle("-fx-background-color: #ff951f");
+            */Thread t = new Thread(new Runnable() {
 
                 @Override
                 public void run() {
@@ -57,8 +62,17 @@ public class gameButton extends Button {
 
                         @Override
                         public void run() {
-                            Menu menu = new Menu(850, 600);
+                            WinningMenuStart menu = null;
+                            try {
+                                menu = new WinningMenuStart();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            } catch (URISyntaxException e) {
+                                e.printStackTrace();
+                            }
                             Main.changeScene(menu.getScene());
+                            //Menu menu = new Menu(850, 600);
+                            //Main.changeScene(menu.getScene());
                         }
                     });
 
@@ -73,8 +87,10 @@ public class gameButton extends Button {
 
             });
         } else if (PlayerName.equals("Player2Won")) {
-            this.setStyle("-fx-background-color: #ff951f");
-            Thread t = new Thread(new Runnable() {
+            Player1 = "Player1Lost";
+            Player2 = "Player2Won";
+            /*this.setStyle("-fx-background-color: #ff951f");
+            */Thread t = new Thread(new Runnable() {
 
                 @Override
                 public void run() {
@@ -87,8 +103,17 @@ public class gameButton extends Button {
 
                         @Override
                         public void run() {
-                            Menu menu = new Menu(850, 600);
+                            WinningMenuStart menu = null;
+                            try {
+                                menu = new WinningMenuStart();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            } catch (URISyntaxException e) {
+                                e.printStackTrace();
+                            }
                             Main.changeScene(menu.getScene());
+                            //Menu menu = new Menu(850, 600);
+                            //Main.changeScene(menu.getScene());
                         }
                     });
                 }

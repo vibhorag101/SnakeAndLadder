@@ -12,6 +12,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import assets.FXML.playerControl;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 public class dice {
     int height;
     int width;
@@ -80,7 +83,13 @@ public class dice {
                             e.printStackTrace();
                         }
                         pc.movePlayer(randomNumber);
-                        pc.updateTurnInfo();
+                        try {
+                            pc.updateTurnInfo();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } catch (URISyntaxException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
                 gameMover.start();
