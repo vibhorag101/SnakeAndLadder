@@ -62,7 +62,6 @@ public class gameBoardMaker {
         path.getElements().addAll(moveTo, lineTo);
         return path;
     }
-
     public Path pathMakerComplex(int startPos, int endPos) {
         int cornerPath = ((startPos - 1) / 10) * 10 + 10;
         int cornerUP = cornerPath + 1;
