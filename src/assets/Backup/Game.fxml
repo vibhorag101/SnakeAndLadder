@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -118,56 +116,6 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9acd32e5" height="60.0" layoutX="540.0" stroke="BLACK" strokeType="INSIDE" width="60.0" />
             <Circle fx:id="P1" centerX="30.0" centerY="570.0" fill="#ff951f" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="P2" centerX="30.0" centerY="570.0" fill="#0fc6e0" layoutX="9.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-            <ImageView fitHeight="204.0" fitWidth="62.0" layoutX="190.0" layoutY="18.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../snakes/snake2.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="138.0" fitWidth="112.0" layoutX="247.0" layoutY="140.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../snakes/snake5.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="104.0" fitWidth="90.0" layoutX="489.0" layoutY="495.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../snakes/snake7.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="149.0" fitWidth="107.0" layoutX="69.0" layoutY="318.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../snakes/snake6.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="183.0" fitWidth="157.0" layoutX="252.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../snakes/snake4.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="153.0" fitWidth="162.0" layoutX="8.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../snakes/snake8.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="266.0" fitWidth="46.0" layoutX="550.0" layoutY="81.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../snakes/snake3.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="264.0" fitWidth="172.0" layoutX="127.0" layoutY="259.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../snakes/snake7.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="151.0" fitWidth="112.0" layoutX="64.0" layoutY="18.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../snakes/snake4.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="267.0" fitWidth="116.0" layoutX="367.0" layoutY="15.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../snakes/snake1.png" />
-               </image>
-            </ImageView>
          </children>
       </Pane>
    </center>
