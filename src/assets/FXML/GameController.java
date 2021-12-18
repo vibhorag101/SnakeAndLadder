@@ -1,20 +1,21 @@
 package assets.FXML;
+import Menu_Items.Menu;
 import application.Main;
 import javafx.animation.Animation;
 import javafx.animation.PathTransition;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import Game.dice;
 import Game.gameButton;
 import javafx.scene.shape.Circle;
-
-import java.awt.*;
 
 public class GameController {
     playerControl pc;
@@ -23,6 +24,7 @@ public class GameController {
     int diceNum;
     gameButton turnInfo;
     gameButton exit;
+    ImageView back;
     /* Initialising the components and injecting them into the controller */
     @FXML
     private VBox leftPane;
@@ -38,7 +40,6 @@ public class GameController {
         this.turnInfo = new gameButton("Player 1\n" + " Turn", "Turn Info");
         initialiseGamePane();
         initialiseLeftPane();
-//        initialiseGamePane();
     }
 
     private void initialiseGamePane() {
@@ -51,9 +52,10 @@ public class GameController {
 
     private void initialiseLeftPane() {
         ImageView indicator = new ImageView(new Image(Main.rl.getPath("logo/arrow.png"), 60, 60, true, true));
+        back = new ImageView(new Image(Main.rl.getPath("logo/previous.png"), 45, 45, true, true));
         exit = new gameButton("Exit", "Exit");
         createDice();
-        leftPane.getChildren().addAll(turnInfo, gameDice.getDiceImage(), indicator,exit);
+        leftPane.getChildren().addAll(turnInfo, gameDice.getDiceImage(), indicator,back,exit);
         styleLeftPane();
         initialiseMouseHandler();
         animateIndicator(indicator);
@@ -107,7 +109,34 @@ public class GameController {
                 System.exit(0);
             }
         });
+        back.setOnMouseClicked(new EventHandler<MouseEvent>(){
 
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                Platform.runLater(new Runnable(){
+
+                    @Override
+                    public void run() {
+                        Menu menu = new Menu(850, 600);
+                        Main.changeScene(menu.getScene());
+                    }
+                });
+            }
+        });
+        back.setOnMouseEntered(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                back.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0);");
+            }
+        });
+        back.setOnMouseExited(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                back.setStyle("-fx-effect:none;");
+            }
+        });
     }
 }
 
