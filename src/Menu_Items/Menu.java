@@ -36,8 +36,16 @@ public class Menu {
     private void makeAllSubScenes() {
         menuWindow infoSubScene = initialiseSubScene(500, 300);
         menuWindow creditSubScene = initialiseSubScene(500, 300);
-        infoSubScene.addText("Info Scene");
-        creditSubScene.addText("Credits Scene");
+        infoSubScene.addText("""
+                   This is a Snake and Ladder game
+                   for AP course at IIIT Delhi
+                   It involves OOPS Concepts
+                   and JavaFX""");
+        creditSubScene.addText("""
+                This game is made by
+                Vibhor Agarwal - 2020349
+                Pritish Poswal - 2020321
+                under the guidance of Prof. K.Rao""");
         subSceneList.add(infoSubScene);
         subSceneList.add(creditSubScene);
 

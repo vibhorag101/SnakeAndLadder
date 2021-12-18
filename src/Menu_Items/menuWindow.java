@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.SubScene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import application.Main;
@@ -37,7 +38,7 @@ public class menuWindow extends SubScene {
         Text t = new Text(text);
         root.getChildren().add(t);
         StackPane.setAlignment(t, Pos.CENTER);
-        t.setFont(Font.loadFont(rl.getPath("fonts/kenvector_future.ttf"), 30));
+        t.setFont(Font.loadFont(rl.getPath("fonts/kenvector_future.ttf"), 20));
     }
 
     public void animateSubScene() {

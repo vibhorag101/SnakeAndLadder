@@ -56,7 +56,7 @@ public class GameController {
     }
 
     private void styleLeftPane() {
-        leftPane.setStyle("-fx-background-color: rgba(140,8,62,0.88);");
+        leftPane.setStyle("-fx-background-color: rgba(24,66,34,0.88);");
     }
 
     private void styleGamePane() {
