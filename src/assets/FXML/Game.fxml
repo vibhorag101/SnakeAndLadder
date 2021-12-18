@@ -158,7 +158,7 @@
                   <Image url="@../snakes/snake7.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="151.0" fitWidth="170.0" layoutX="64.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="151.0" fitWidth="112.0" layoutX="64.0" layoutY="18.0" pickOnBounds="true">
                <image>
                   <Image url="@../snakes/snake4.png" />
                </image>

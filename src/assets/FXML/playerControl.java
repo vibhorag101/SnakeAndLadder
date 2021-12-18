@@ -4,6 +4,9 @@ import Game.gameButton;
 import javafx.animation.PathTransition;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Path;
+import java.util.ArrayList;
+import javafx.scene.shape.PathElement;
+import javafx.collections.ObservableList;
 import javafx.util.Duration;
 
 public class playerControl {
@@ -40,8 +43,6 @@ public class playerControl {
         pathTransition.setCycleCount(1);
         pathTransition.play();
     }
-<<<<<<< Updated upstream
-=======
     public int getLadderDest(int Start){
         return switch (Start) {
             case 4 -> 25;
@@ -138,8 +139,6 @@ public class playerControl {
             return false;
         }
     }
->>>>>>> Stashed changes
-
     public void movePlayer(int diceNum){
         if (p1Turn) {
             if (!p1Unlocked && (diceNum == 1 || diceNum == 6)) {
@@ -148,12 +147,6 @@ public class playerControl {
             p1Turn = false;
             p2Turn = true;
             if (p1Unlocked) {
-<<<<<<< Updated upstream
-                int p1Dest = p1Pos + diceNum;
-                if (p1Dest <= 100) {
-                    playAnimation(p1, p1Pos, p1Dest);
-                    p1Pos = p1Dest;
-=======
                 boolean onLadder;
                 boolean onSnake;
                 int p1Dest = p1Pos + diceNum;
@@ -161,7 +154,7 @@ public class playerControl {
                     onLadder = checkOnLadder(p1Dest);
                     onSnake = checkOnSnake(p1Dest);
                     System.out.println("Ladder "+onLadder);
-                    System.out.println("Snake "+onSnake);
+                    System.out.println("Snake test "+onSnake);
                     if(onLadder){
                         playAnimationOnLadder(p1, p1Pos, p1Dest);
                         p1Pos = getLadderDest(p1Dest);
@@ -173,8 +166,6 @@ public class playerControl {
                         playAnimation(p1, p1Pos, p1Dest);
                         p1Pos = p1Dest;
                     }
-
->>>>>>> Stashed changes
                 }
                 if (p1Dest==100){
                     p1Won = true;
@@ -192,11 +183,25 @@ public class playerControl {
                 p2Unlocked = true;
             }
             if (p2Unlocked) {
+                boolean onLadder;
+                boolean onSnake;
                 int p2Dest = p2Pos + diceNum;
                 if (p2Dest <= 100) {
-                    //TODO complete the winning logic
-                    playAnimation(p2, p2Pos, p2Dest);
-                    p2Pos = p2Dest;
+                    onLadder = checkOnLadder(p2Dest);
+                    onSnake = checkOnSnake(p2Dest);
+                    System.out.println("Ladder "+onLadder);
+                    System.out.println("Snake test "+onSnake);
+                    if(onLadder){
+                        playAnimationOnLadder(p2, p2Pos, p2Dest);
+                        p2Pos = getLadderDest(p2Dest);
+                    }
+                    else if(onSnake){
+                        p2Pos = getSnakeDest(p2Dest);
+                    }
+                    else{
+                        playAnimation(p2, p2Pos, p2Dest);
+                        p2Pos = p2Dest;
+                    }
                 }
                 if (p2Dest==100){
                     p2Won = true;
