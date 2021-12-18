@@ -83,36 +83,32 @@ public class playerControl {
         }
         return path;
     }
+    public Path getSnakePath(int intitialPos ,int snakeStart){
+        Path path = new Path();
+        ObservableList<PathElement> elementsPath = gb.getMovingPath(intitialPos, snakeStart).getElements();
+        ObservableList<PathElement> elementsPathSnake = gb.pathMaker(snakeStart, getSnakeDest(snakeStart)).getElements();
+        elementsPath.addAll(elementsPathSnake);
+
+        for (PathElement element : elementsPath) {
+            path.getElements().add(element);
+        }
+        return path;
+    }
+    public void playAnimationOnSnake(Circle p, int pPos, int pDest) {
+        PathTransition pathTransition = new PathTransition();
+        Path path = new Path();
+        path = getSnakePath(pPos, pDest);
+        pathTransition.setPath(path);
+        pathTransition.setAutoReverse(false);
+        pathTransition.setNode(p);
+        pathTransition.setDuration(Duration.seconds(3));
+        pathTransition.setCycleCount(1);
+        pathTransition.play();
+    }
     public void playAnimationOnLadder(Circle p, int pPos, int pDest) {
         PathTransition pathTransition = new PathTransition();
         Path path = new Path();
-        if (pDest== 4){
-            path = getLadderPath(pPos, pDest);
-        }
-        else if (pDest== 8){
-            path = getLadderPath(pPos, pDest);
-        }
-        else if (pDest== 28){
-            path = getLadderPath(pPos, pDest);
-        }
-        else if (pDest== 32){
-            path = getLadderPath(pPos, pDest);
-        }
-        else if (pDest== 42){
-            path = getLadderPath(pPos, pDest);
-        }
-        else if (pDest== 52){
-            path = getLadderPath(pPos, pDest);
-        }
-        else if (pDest== 58){
-            path = getLadderPath(pPos, pDest);
-        }
-        else if (pDest== 69){
-            path = getLadderPath(pPos, pDest);
-        }
-        else if (pDest== 84){
-            path = getLadderPath(pPos, pDest);
-        }
+        path = getLadderPath(pPos, pDest);
         pathTransition.setPath(path);
         pathTransition.setAutoReverse(false);
         pathTransition.setNode(p);
@@ -153,13 +149,12 @@ public class playerControl {
                 if (p1Dest <= 100) {
                     onLadder = checkOnLadder(p1Dest);
                     onSnake = checkOnSnake(p1Dest);
-                    System.out.println("Ladder "+onLadder);
-                    System.out.println("Snake test "+onSnake);
                     if(onLadder){
                         playAnimationOnLadder(p1, p1Pos, p1Dest);
                         p1Pos = getLadderDest(p1Dest);
                     }
                     else if(onSnake){
+                        playAnimationOnSnake(p1, p1Pos, p1Dest);
                         p1Pos = getSnakeDest(p1Dest);
                     }
                     else{
@@ -189,13 +184,12 @@ public class playerControl {
                 if (p2Dest <= 100) {
                     onLadder = checkOnLadder(p2Dest);
                     onSnake = checkOnSnake(p2Dest);
-                    System.out.println("Ladder "+onLadder);
-                    System.out.println("Snake test "+onSnake);
                     if(onLadder){
                         playAnimationOnLadder(p2, p2Pos, p2Dest);
                         p2Pos = getLadderDest(p2Dest);
                     }
                     else if(onSnake){
+                        playAnimationOnSnake(p2, p2Pos, p2Dest);
                         p2Pos = getSnakeDest(p2Dest);
                     }
                     else{
