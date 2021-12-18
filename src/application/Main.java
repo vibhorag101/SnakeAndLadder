@@ -19,7 +19,7 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage){
         Main.stage = stage;
         Image logo = new Image(rl.getPath("Background/Menu_Background.jpg"));
         Menu menu = new Menu(850, 600);
@@ -28,9 +28,6 @@ public class Main extends Application {
         changeScene(menu.getScene());
         stage.resizableProperty().setValue(false);
     }
-    /*
-    TODO add method to change the scene as per choice from the start menu
-     */
 
     public static void main(String[] args) {
         launch(args);
