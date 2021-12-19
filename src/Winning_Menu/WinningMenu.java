@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import application.Main;
 import javafx.event.ActionEvent;
 import Game.gameButton;
+import javafx.scene.text.Font;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -46,10 +48,14 @@ public class WinningMenu {
         if(Player1.equals("Player1Won")){
             WinnerLabel.setText("Player 1");
             LoserLabel.setText("Player 2");
+            WinnerLabel.setFont(Font.loadFont(Main.rl.getPath("fonts/kenvector_future.ttf"), 40));
+            LoserLabel.setFont(Font.loadFont(Main.rl.getPath("fonts/kenvector_future.ttf"), 40));
         }
         else if(Player2.equals("Player2Won")){
             WinnerLabel.setText("Player 2");
             LoserLabel.setText("Player 1");
+            WinnerLabel.setFont(Font.loadFont(Main.rl.getPath("fonts/kenvector_future.ttf"), 40));
+            LoserLabel.setFont(Font.loadFont(Main.rl.getPath("fonts/kenvector_future.ttf"), 40));
         }
     }
 }
