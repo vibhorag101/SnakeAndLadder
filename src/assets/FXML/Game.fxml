@@ -145,7 +145,7 @@
             </ImageView>
             <ImageView fitHeight="267.0" fitWidth="116.0" layoutX="362.0" layoutY="17.0" pickOnBounds="true">
                <image>
-                  <Image url="@../snakes/snake1.png" />
+                  <Image url="@../snakes/snake8.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="151.0" fitWidth="112.0" layoutX="64.0" layoutY="18.0" pickOnBounds="true">
