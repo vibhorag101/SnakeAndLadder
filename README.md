@@ -41,7 +41,7 @@ The main menu of the game is present below
 ### Main Game Screen
 -Here we have a dice animation which simulates the dice roll. This involves multithreading for efficient resource use.
 
-![image](https://user-images.githubusercontent.com/76804249/189912594-d4e43fcf-d6cc-43ef-9ea5-5bea209ad330.png = 300x300)
+![image](https://user-images.githubusercontent.com/76804249/189912594-d4e43fcf-d6cc-43ef-9ea5-5bea209ad330.png)
 
 We have snake bite and ladder climbing animations as well. The ladders are made using co-ordinate geometry lines using slopes.
 
