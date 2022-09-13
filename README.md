@@ -6,15 +6,15 @@ The game is made using the concepts of **Object Oriented Progamming**, **Multith
 - Vibhor Agarwal, CS Undergraduate at IIIT Delhi
 - Pritish Poswal, CS Undergraduate at IIIT Delhi
 ## How to Deploy the Game
--First clone this repository
--Setup the JavaFX in the local system.
--Open the project folder in `IntellIj Idea`
--Go to the Project Structure and JavaFX lib folder in the libraries
+- First clone this repository
+- Setup the JavaFX in the local system.
+- Open the project folder in `IntellIj Idea`
+- Go to the Project Structure and JavaFX lib folder in the libraries
 
 ![image](https://user-images.githubusercontent.com/76804249/189909359-4002db5a-77b4-4573-9e7e-3cb9047397e3.png)
 
 -Now go to `Edit Configuration` under the `Run` tab.
--In the VM Options add the following
+- In the VM Options add the following
 
 ```
 --module-path
@@ -39,7 +39,7 @@ The main menu of the game is present below
 - We can now start the game from start button
 
 ### Main Game Screen
--Here we have a dice animation which simulates the dice roll. This involves `multithreading` for efficient resource use.
+- Here we have a dice animation which simulates the dice roll. This involves `multithreading` for efficient resource use.
 
 ![image](https://user-images.githubusercontent.com/76804249/189912594-d4e43fcf-d6cc-43ef-9ea5-5bea209ad330.png)
 
@@ -47,7 +47,7 @@ We have snake bite and ladder climbing animations as well. The ladders are made 
 
 ### Winning Screen
 
--The game has a winning which shows who has won the game.
+- The game has a winning which shows who has won the game.
 
 ![image](https://user-images.githubusercontent.com/76804249/189914274-af5fdd70-8e67-4dc8-b4b2-05899cb76d9b.png)
 
