@@ -32,18 +32,18 @@ The game has most features that we can expect. It has a custom Snake and Ladders
 
 ### Welcome Menu
 The main menu of the game is present below
-- We have and Info and Credits screen as well. There is an animation for switching between different buttons.
+- We have and Info and Credits screen as well. There is an `animation` for switching between different buttons.
 
 ![image](https://user-images.githubusercontent.com/76804249/189911301-c62a3de6-e4c4-46fa-8484-5b6e7612c190.png)
 
 - We can now start the game from start button
 
 ### Main Game Screen
--Here we have a dice animation which simulates the dice roll. This involves multithreading for efficient resource use.
+-Here we have a dice animation which simulates the dice roll. This involves `multithreading` for efficient resource use.
 
 ![image](https://user-images.githubusercontent.com/76804249/189912594-d4e43fcf-d6cc-43ef-9ea5-5bea209ad330.png)
 
-We have snake bite and ladder climbing animations as well. The ladders are made using co-ordinate geometry lines using slopes.
+We have snake bite and ladder climbing animations as well. The ladders are made using `co-ordinate geometry` lines using slopes.
 
 ### Winning Screen
 
