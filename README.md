@@ -13,7 +13,7 @@ The game is made using the concepts of **Object Oriented Progamming**, **Multith
 
 ![image](https://user-images.githubusercontent.com/76804249/189909359-4002db5a-77b4-4573-9e7e-3cb9047397e3.png)
 
--Now go to `Edit Configuration` under the `Run` tab.
+- Now go to `Edit Configuration` under the `Run` tab.
 - In the VM Options add the following
 
 ```
