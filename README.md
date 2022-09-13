@@ -16,3 +16,7 @@ The game is made using the concepts of **Object Oriented Progamming**, **Multith
 --add-modules
 javafx.controls,javafx.fxml,javafx.base,javafx.graphics,javafx.media,javafx.swing
 ```
+![image](https://user-images.githubusercontent.com/76804249/189909802-6e0f7791-87ca-4ef5-8fff-87ee48d98d0e.png)
+- The game can be run from Run Button in Main class in application package
+
+
